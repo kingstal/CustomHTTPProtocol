@@ -67,6 +67,8 @@ typedef void (^ChallengeCompletionHandler)(NSURLSessionAuthChallengeDisposition 
  *  -dealloc rather than in -stopLoading.  We can be sure that it's not read before 
  *  it's set up because the main thread code that reads it can only be called after 
  *  -startLoading has started the connection running.
+ *  在-startLoading设置client线程，之后从不更改。
+ *  但经常被其他线程读取（尤其是主线程），所以在-dealloc中deallocate，而不是在-stopLoading中。
  */
 
 @property (atomic, copy,   readwrite) NSArray *                         modes;

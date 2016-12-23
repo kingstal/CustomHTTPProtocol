@@ -64,6 +64,7 @@
 /*! For threadInfoByThreadID, each key is an NSNumber holding a thread ID and each 
     value is a ThreadInfo object.  The dictionary is protected by @synchronized on 
     the app delegate object itself.
+    (threadID, ThreadInfo)
     
     In the debugger you can dump this info with:
     
